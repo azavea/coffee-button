@@ -1,0 +1,8 @@
+{
+    "name": "CoffeeButton",
+    "description": "Parse election result XML files into json and upload to S3",
+    "memory": 128,
+    "timeout": 3,
+    "role": "arn:aws:iam::715496170458:role/lambda_basic_execution",
+    "nameTemplate": "func{{.Project.Name}}{{.Function.Name}}"
+}

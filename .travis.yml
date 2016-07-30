@@ -1,0 +1,17 @@
+sudo: required
+
+language: bash
+
+services:
+  - docker
+
+script:
+  - make test
+
+after_success:
+  - if [ "${TRAVIS_BRANCH}" == "develop" ]; then
+    make -e COFFEE_BUTTON_FUNCTION_ALIAS="staging" deploy;
+    fi
+  - if [ "${TRAVIS_BRANCH}" == "master" ]; then
+    make -e COFFEE_BUTTON_FUNCTION_ALIAS="production" deploy;
+    fi
