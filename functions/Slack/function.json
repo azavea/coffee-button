@@ -1,0 +1,6 @@
+{
+    "name": "Slack",
+    "description": "",
+    "memory": 128,
+    "timeout": 3
+}
