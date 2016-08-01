@@ -27,5 +27,6 @@ def handle(event, context):
     slack_channel = os.environ['COFFEE_BUTTON_SLACK_CHANNEL']
 
     if event['clickType'] == str(ButtonClickType.Single):
-        requests.post(slack_webhook_url, json={'text': 'Hello, world.',
-                                               'channel': slack_channel})
+        requests.post(slack_webhook_url, json={
+            'text': 'Fresh coffee is ready!',
+            'channel': slack_channel})
