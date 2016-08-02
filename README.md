@@ -29,7 +29,7 @@ $ make test
 
 ## Deployment
 
-Function deployment will occurs automatically via Travis CI. If you choose to execute deployments manually, execute the following steps:
+Function deployment occurs automatically via Travis CI. If you choose to execute deployments manually, run through the following steps:
 
 ```bash
 $ export COFFEE_BUTTON_SLACK_WEBHOOK_URL="https://hooks.slack.com/..."

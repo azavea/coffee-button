@@ -8,7 +8,8 @@ RUN \
           curl \
       && pip install --no-cache \
           pytest \
-          requests_mock \
+          pytest-flake8 \
+          httpretty \
       && curl -s "https://raw.githubusercontent.com/apex/apex/master/install.sh" | sh \
       && apk del .build-deps
 
