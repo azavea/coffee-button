@@ -12,6 +12,6 @@ deploy: build
 			-s COFFEE_BUTTON_SLACK_CHANNEL="$(COFFEE_BUTTON_SLACK_CHANNEL)"
 
 test: build
-	docker run --rm coffee-button:slack py.test
+	docker run --rm coffee-button:slack py.test --flake8
 
 .PHONY: build deploy test
