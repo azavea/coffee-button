@@ -10,6 +10,7 @@ RUN \
           pytest \
           pytest-flake8 \
           httpretty \
+          pytz \
       && curl -s "https://raw.githubusercontent.com/apex/apex/master/install.sh" | sh \
       && apk del .build-deps
 
@@ -18,4 +19,5 @@ COPY . /usr/src
 RUN \
       pip install --no-cache -t functions/Slack \
           enum34 \
-          requests
+          requests \
+          pytz

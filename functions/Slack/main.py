@@ -1,5 +1,7 @@
 import os
 import requests
+import pytz
+import datetime
 
 from enum import Enum
 
@@ -27,8 +29,10 @@ def handle(event, context):
     slack_channel = os.environ['COFFEE_BUTTON_SLACK_CHANNEL']
 
     if event['clickType'] == str(ButtonClickType.Single):
+        now = datetime.datetime.now(tz=pytz.timezone('US/Eastern'))
+        ready_time = now + datetime.timedelta(minutes=5)
         requests.post(slack_webhook_url, json={
-            'text': 'Coffee is brewing and will be ready in about 5 minutes!',
+            'text': 'Coffee is brewing and will be ready at {}!'.format(ready_time.strftime('%-I:%M%p')),  # NOQA
             'channel': slack_channel})
 
     if event['clickType'] == str(ButtonClickType.Double):
