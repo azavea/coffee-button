@@ -30,9 +30,10 @@ def handle(event, context):
 
     if event['clickType'] == str(ButtonClickType.Single):
         now = datetime.datetime.now(tz=pytz.timezone('US/Eastern'))
-        ready_time = now + datetime.timedelta(minutes=5)
+        ready_datetime = now + datetime.timedelta(minutes=5)
+        ready_time = ready_datetime.strftime('%l:%M%p').lower().strip()
         requests.post(slack_webhook_url, json={
-            'text': 'Coffee is brewing and will be ready at {}!'.format(ready_time.strftime('%-I:%M%p')),  # NOQA
+            'text': 'Coffee is brewing and will be ready at {}!'.format(ready_time),  # NOQA
             'channel': slack_channel})
 
     if event['clickType'] == str(ButtonClickType.Double):
