@@ -11,6 +11,10 @@ RUN \
           pytest-flake8 \
           httpretty \
           pytz \
+          urllib3 \
+          chardet \
+          certifi \
+          idna \
       && curl -s "https://raw.githubusercontent.com/apex/apex/master/install.sh" | sh \
       && apk del .build-deps
 
