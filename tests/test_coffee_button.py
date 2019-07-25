@@ -32,7 +32,7 @@ class SlackTestCase(unittest.TestCase):
     def test_double_click_type(self):
         handle({'clickType': str(ButtonClickType.Double)}, None)
         self.assertTrue(httpretty.has_request())
-        self.assertTrue("Jack-O-Lantern" in json.loads(
+        self.assertTrue("Oops and sorry" in json.loads(
             httpretty.last_request().body)['text'])
 
     def test_long_click_type(self):
